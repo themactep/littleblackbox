@@ -100,7 +100,7 @@ char *remote_fingerprint(char *host, int port)
         /* The remote host's certificate is stored in SSL->session->peer.
          * Generate a SHA1 fingerprint from this certificate.
          */
-        fingerprint = sha1_fingerprint(ssl_handle->session->peer);
+        fingerprint = sha1_fingerprint(SSL_get_peer_certificate(ssl_handle));
     }
     else 
     {
